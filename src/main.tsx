@@ -1,13 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import AgriHubLanding from "./AgriHubLanding";
 import "./index.css";
-
-function Temp() {
-  return <div style={{padding:24}}>It works (Temp)</div>;
-}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Temp />
+    <AgriHubLanding />
   </React.StrictMode>
 );
