@@ -1,7 +1,34 @@
 import { useState } from "react";
 import { ArrowRight, Leaf, Sprout, Handshake, Users2, Factory, BarChart3, Library, Globe, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// --- Simple UI primitives to replace shadcn/ui ---
+function Button({ className = "", variant, children, ...props }: any) {
+  const base = "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition";
+  const variants: Record<string, string> = {
+    default: "bg-neutral-900 text-white hover:bg-neutral-800",
+    outline: "border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50",
+    secondary: "bg-white border border-neutral-200 text-neutral-900 hover:bg-neutral-50"
+  };
+  const v = variant && variants[variant] ? variants[variant] : variants.default;
+  return (
+    <button className={`${base} ${v} ${className}`} {...props}>
+      {children}
+    </button>
+  );
+}
+
+function Card({ className = "", children }: any) {
+  return <div className={`bg-white rounded-2xl shadow-sm ring-1 ring-neutral-200 ${className}`}>{children}</div>;
+}
+function CardHeader({ className = "", children }: any) {
+  return <div className={`p-4 ${className}`}>{children}</div>;
+}
+function CardTitle({ className = "", children }: any) {
+  return <h3 className={`text-lg font-semibold ${className}`}>{children}</h3>;
+}
+function CardContent({ className = "", children }: any) {
+  return <div className={`p-4 pt-0 text-sm text-neutral-600 ${className}`}>{children}</div>;
+}
+// --- End primitives ---
 
 // Simple helper components
 function SectionTitle({ kicker, title, subtitle }: { kicker?: string; title: string; subtitle?: string }) {
