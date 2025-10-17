@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import AgriHubLanding from "./AgriHubLanding";
+import AgriHubLanding from "./AgriHubLanding.tsx";  // указываем .tsx ЯВНО
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
